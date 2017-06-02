@@ -19,7 +19,7 @@ export class ExperimentBuilder implements Experiment {
   private _callCount = 0;
 
   constructor(public name: string, public module?: NodeModule) {
-    this.id = `exp${module ? module.id : ''}`;
+    this.id = `exp${module ? module.id : '-' + name}`;
   }
 
   case(description: string, config: CaseConfig): this {

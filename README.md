@@ -53,7 +53,7 @@ by [React Storybook](https://getstorybook.io/)
 
 #### Writing Experiments
 
-1. Create a `component-name.exp.js` file in the directory your component is located.
+1. Create a `component-name.exp.ts` file in the directory your component is located.
 
   ```ts
   import { experimentOn } from 'component-lab';
@@ -177,4 +177,42 @@ by [React Storybook](https://getstorybook.io/)
   Via yarn:
   ```bash
   yarn run component-lab -- feature
+  ```
+  
+  
+  
+#### Bulding component-lab from src
+
+1. Install all dependencies:
+
+  Via npm:
+  ```bash
+  npm install
+  ```
+
+  Via yarn:
+  ```bash
+  yarn install
+  ```
+  
+2. Build component-lab:  
+  Via npm:
+  ```bash
+  npm run build
+  ```
+
+  Via yarn:
+  ```bash
+  yarn run build
+  ```
+
+  This will create a folder called "release", this is the folder that we need to refer to in our package.json file.
+  So in another project that use the component-lab we add to his package.json in devDependencies section the path to release.
+  For example: 
+  ```bash
+  "devDependencies": {
+    ...
+	"component-lab": "file:///C:\\islavi\\component-lab\\release",
+	...
+  }
   ```
