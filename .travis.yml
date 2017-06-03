@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+- 6
+install: npm install
+script:
+- npm run build
+deploy:
+  - provider: npm
+    email: israel.lavi@gmail.com
+    api_key: $NPM_TOKEN
+    on:
+      tags: true
+      repo: islavi/component-lab
+  - provider: pages
+    repo: islavi/component-lab
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    local_dir: .out
+    on:
+      branch: master
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    local_dir: .out
+    on:
+      all_branches: true
+      condition: $DEPLOY = 1
