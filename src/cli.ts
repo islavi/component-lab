@@ -11,9 +11,9 @@ const args = minimist(process.argv.slice(2));
 const ComponentLab = new Liftoff({
   name: 'run-lab',
   extensions: interpret.jsVariants,
-  configName: 'component-lab.config',
+  configName: 'ng2-component-lab.config',
   configFiles: {
-    'component-lab.config': {
+    'ng2-component-lab.config': {
       up: {
         path: '.',
         findUp: true
@@ -49,7 +49,7 @@ function launch(env: any) {
   }
 
   if (!env.configPath) {
-    log(chalk.red('No local component-lab config file found'));
+    log(chalk.red('No local ng2-component-lab config file found'));
     process.exit(1);
   }
 

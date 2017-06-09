@@ -1,10 +1,10 @@
 {
-  "name": "component-lab",
+  "name": "@islavi/ng2-component-lab",
   "version": "1.0.0",
-  "description": "Build Angular 2 components in a controlled, isolated environment",
+  "description": "Build Angular 2 components in a controlled, isolated environment. This is fork from <a href='https://github.com/synapse-wireless-labs/component-lab.git'>https://github.com/synapse-wireless-labs/component-lab.git</a> which use angular 2 and fix some bugs.",
   "main": "index.js",
   "repository": {
-    "url": "https://github.com/synapse-wireless-labs/component-lab.git",
+    "url": "https://github.com/islavi/ng2-component-lab.git",
     "type": "git"
   },
   "authors": [
@@ -18,7 +18,7 @@
   ],
   "license": "MIT",
   "bin": {
-    "component-lab": "./src/cli.js"
+    "ng2-component-lab": "./src/cli.js"
   },
   "scripts": {
     "copy": "cpy package.json README.md index.html release",
@@ -26,7 +26,7 @@
     "build:js": "tsc -p tsconfig.dist.json",
     "build:cli": "tsc -p tsconfig.cli.json",
     "build:umd": "rollup -c rollup.config.js",
-    "build:uglify": "uglifyjs -c --screw-ie8 --comments -o ./release/bundles/component-lab.min.umd.js ./release/bundles/component-lab.umd.js",
+    "build:uglify": "uglifyjs -c --screw-ie8 --comments -o ./release/bundles/ng2-component-lab.min.umd.js ./release/bundles/ng2-component-lab.umd.js",
     "prebuild": "yarn run clean",
     "build": "yarn run build:js && yarn run build:umd && yarn run build:uglify && yarn build:cli",
     "postbuild": "yarn run copy"

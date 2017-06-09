@@ -1,6 +1,6 @@
 export default {
   entry: './release/index.js',
-  dest: './release/bundles/component-lab.umd.js',
+  dest: './release/bundles/ng2-component-lab.umd.js',
   format: 'umd',
   moduleName: 'synapse.componentLab',
   globals: {

@@ -22,7 +22,7 @@ export function startServer(config: ComponentLabConfig, suite: string) {
   const devServerConfig: DevServerConfig = webpackConfig.devServer;
   let https = false,
     host = config.host || "localhost",
-    port = config.port || 8080;
+    port = config.port || 6007;
   if (devServerConfig) {
     https = !!devServerConfig.https;
     host = devServerConfig.host || host;

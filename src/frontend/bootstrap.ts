@@ -4,7 +4,7 @@ import { provideExperiments } from './services/experiment-registry';
 import { provideResolvedLab } from './services/experiment-factory';
 import { Lab } from './models/lab';
 import { getModuleForExperiments } from './module-builder';
-import { ComponentLabModule } from './component-lab.module';
+import { ComponentLabModule } from './ng2-component-lab.module';
 
 
 export function bootstrap(lab: Lab): Promise<NgModuleRef<ComponentLabModule>> {

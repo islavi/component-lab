@@ -1,25 +1,23 @@
 # Component Lab 
-A component development and testing tool built for Angular, inspired
-by [React Storybook](https://getstorybook.io/)
+A component development and testing tool built for Angular 2, inspired by [React Storybook](https://getstorybook.io/)
 
-![](http://i.imgur.com/Lcv41dc.png)
-
+This is a fork from <a href='https://github.com/synapse-wireless-labs/component-lab'>https://github.com/synapse-wireless-labs/component-lab</a> with some bug fixes and with angular 2 instead of angular 4.
 
 ### Getting Started
 
 #### Installation and Configuration
-1. Install Component Lab:
+1. Install NG2 Component Lab:
   Via npm:
   ```bash
-  npm install component-lab --save-dev
+  npm install ng2-component-lab --save-dev
   ```
 
   Via yarn:
   ```bash
-  yarn add component-lab --dev
+  yarn add ng2-component-lab --dev
   ```
 
-2. Create a `component-lab.config.js` file in the root of your project
+2. Create a `ng2-component-lab.config.js` file in the root of your project
 
   ```js
   /**
@@ -31,10 +29,10 @@ by [React Storybook](https://getstorybook.io/)
      */
     webpackConfig: { ... },
     /**
-     *  Host and port of the Component Lab webpack development server
+     *  Host and port of the Ng2 Component Lab webpack development server
      */
     host: 'localhost',
-    port: 8080,
+    port: 6007,
     /**
      * Additional list of files to include in the bundle
      */
@@ -56,7 +54,7 @@ by [React Storybook](https://getstorybook.io/)
 1. Create a `component-name.exp.ts` file in the directory your component is located.
 
   ```ts
-  import { experimentOn } from 'component-lab';
+  import { experimentOn } from 'ng2-component-lab';
 
 
   export default experimentOn('Component Experiment Name')
@@ -82,7 +80,7 @@ by [React Storybook](https://getstorybook.io/)
   Example:
 
   ```ts
-  import { experimentOn } from 'component-lab';
+  import { experimentOn } from 'ng2-component-lab';
   
 
   export default experimentOn('My Button')
@@ -119,7 +117,7 @@ by [React Storybook](https://getstorybook.io/)
   1. Create a lab configuration module:
 
   ```ts
-  import { createLab } from 'component-lab';
+  import { createLab } from 'ng2-component-lab';
   import { FeatureModule } from './feature.module';
 
 
@@ -144,13 +142,13 @@ by [React Storybook](https://getstorybook.io/)
   });
   ```
 
-  2. List the lab as a suite in your `component-lab.config.js` file:
+  2. List the lab as a suite in your `ng2-component-lab.config.js` file:
 
   ```js
   module.exports = {
     webpackConfig: { ... },
     host: 'localhost',
-    port: 8080,
+    port: 6007,
     include: [],
     suites: {
       feature: './src/feature/feature.module.ts'
@@ -162,7 +160,7 @@ by [React Storybook](https://getstorybook.io/)
   ```json
   {
     "scripts": {
-      "component-lab": "component-lab"
+      "ng2-component-lab": "ng2-component-lab"
     }
   }
   ```
@@ -171,17 +169,17 @@ by [React Storybook](https://getstorybook.io/)
 
   Via npm:
   ```bash
-  npm run component-lab -- feature
+  npm run ng2-component-lab -- feature
   ```
 
   Via yarn:
   ```bash
-  yarn run component-lab -- feature
+  yarn run ng2-component-lab -- feature
   ```
   
   
   
-#### Bulding component-lab from src
+#### Bulding ng2-component-lab from src
 
 1. Install all dependencies:
 
@@ -195,7 +193,7 @@ by [React Storybook](https://getstorybook.io/)
   yarn install
   ```
   
-2. Build component-lab:  
+2. Build ng2-component-lab:  
   Via npm:
   ```bash
   npm run build
@@ -207,12 +205,12 @@ by [React Storybook](https://getstorybook.io/)
   ```
 
   This will create a folder called "release", this is the folder that we need to refer to in our package.json file.
-  So in another project that use the component-lab we add to his package.json in devDependencies section the path to release.
+  So in another project that use the ng2-component-lab we add to his package.json in devDependencies section the path to release.
   For example: 
   ```bash
   "devDependencies": {
     ...
-	"component-lab": "file:///C:\\islavi\\component-lab\\release",
+	"ng2-component-lab": "file:///C:\\islavi\\ng2-component-lab\\release",
 	...
   }
   ```
