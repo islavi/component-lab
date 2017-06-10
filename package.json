@@ -1,6 +1,6 @@
 {
   "name": "@islavi/ng2-component-lab",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Build Angular 2 components in a controlled, isolated environment. This is fork from <a href='https://github.com/synapse-wireless-labs/component-lab.git'>https://github.com/synapse-wireless-labs/component-lab.git</a> which use angular 2 and fix some bugs.",
   "main": "index.js",
   "repository": {
@@ -58,13 +58,5 @@
     "typescript": "^2.0.3",
     "uglifyjs": "^2.4.10",
     "zone.js": "^0.6.25"
-  },
-  "peerDependencies": {
-    "@angular/common": "^2.0.2",
-    "@angular/core": "^2.0.2",
-    "@angular/platform-browser": "^2.0.2",
-    "@angular/platform-browser-dynamic": "^2.0.2",
-    "@angular/router": "^3.0.2",
-    "rxjs": "5.0.0-beta.12"
   }
 }
