@@ -41,7 +41,7 @@ export function startServer(config: ComponentLabConfig, suite: string) {
   webpackConfig.plugins = webpackConfig.plugins.filter(p => ! (p instanceof HtmlWebpackPlugin));
 
   const compiler = webpack(webpackConfig);
-  
+
   compiler.apply(new ProgressPlugin({
     profile: true,
     colors: true
@@ -60,7 +60,7 @@ export function startServer(config: ComponentLabConfig, suite: string) {
       hash: true,
       timings: true,
       chunks: false,
-      chunkModules: false  
+      chunkModules: false
     },
     inline: true
   }, devServerConfig);

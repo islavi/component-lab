@@ -11,11 +11,6 @@ This is a fork from <a href='https://github.com/synapse-wireless-labs/component-
   npm install @islavi/ng2-component-lab --save-dev
   ```
 
-  Via yarn:
-  ```bash
-  yarn add @islavi/ng2-component-lab --dev
-  ```
-
 2. The best way to understand how to configure ng2-component-lab is to download the example from <a href="https://github.com/islavi/ng2-component-lab-example">https://github.com/islavi/ng2-component-lab-example</a>
   The following files should be configured:
 
@@ -184,16 +179,11 @@ This is a fork from <a href='https://github.com/synapse-wireless-labs/component-
   ```
   Note: feature is the suite name.
 
-  2. Start the Component Lab server using npm or yarn:
+  2. Start the Component Lab server using npm:
 
   Via npm:
   ```bash
   npm run lab
-  ```
-
-  Via yarn:
-  ```bash
-  yarn run lab
   ```
    
   
@@ -205,21 +195,11 @@ This is a fork from <a href='https://github.com/synapse-wireless-labs/component-
   ```bash
   npm install
   ```
-
-  Via yarn:
-  ```bash
-  yarn install
-  ```
   
 2. Build ng2-component-lab:  
   Via npm:
   ```bash
   npm run build
-  ```
-
-  Via yarn:
-  ```bash
-  yarn run build
   ```
 
   This will create a folder called "release".
