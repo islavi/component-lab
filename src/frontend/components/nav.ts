@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Experiment, ExperimentCase } from '../models/experiment';
+import {Component, Input} from '@angular/core';
+import {Experiment, ExperimentCase} from '../models/experiment';
 
 
 @Component({
@@ -7,17 +7,12 @@ import { Experiment, ExperimentCase } from '../models/experiment';
   template: `
     <nav>
       <div *ngFor="let experiment of experiments" class="experiment">
-        <span class="experimentName">
-          {{ experiment.name }}
-        </span>
-
         <nav class="cases">
           <a 
-            *ngFor="let c of experiment.cases" 
-            [routerLink]="[ '/', 'experiment', 'preview', experiment.id, c.id ]"
+            [routerLink]="[ '/', 'experiment', 'preview', experiment.id]"
             routerLinkActive="caseLinkActive"
             class="caseLink">
-            {{ c.description }}
+            {{ experiment.name }}
           </a>
         </nav>
       </div>
@@ -26,7 +21,7 @@ import { Experiment, ExperimentCase } from '../models/experiment';
   styles: [`
     :host {
       display: block;
-      padding: 16px;
+      padding: 15px 0px 15px 0px;
       width: 220px;
       max-height: 100vh;
       overflow: auto;
@@ -39,20 +34,20 @@ import { Experiment, ExperimentCase } from '../models/experiment';
     }
 
     .experiment:not(:last-child) {
-      padding-bottom: 10px;
-      margin-bottom: 20px;
+      /*padding-bottom: 10px;*/
+      /*margin-bottom: 20px;*/
       border-bottom: 2px solid #232730;
     }
 
     .experimentName {
       display: block;
-      font-size: 13px;
+      font-size: 18px;
       margin: 12px 0 8px;
       padding: 0px 8px;
     }
 
     .caseLink {
-      font-size: 11px;
+      font-size: 18px;
       color: #626D79;
       display: block;
       text-decoration: none;
@@ -62,13 +57,17 @@ import { Experiment, ExperimentCase } from '../models/experiment';
       transition: all 200ms;
     }
 
-    .caseLink.caseLinkActive, .caseLink:hover {
+    .caseLink:hover {
       color: white;
       background-color: #1D202B;
     }
+     .caseLink.caseLinkActive {
+      color: white;
+      background-color: #009fdb;
+     }
   `]
 })
 export class NavComponent {
-  @Input() experiments: Experiment[];
-  @Input() activeCase: ExperimentCase;
+  @Input() experiments:Experiment[];
+  @Input() activeCase:ExperimentCase;
 }
