@@ -1,15 +1,15 @@
-import { pluck } from 'rxjs/operator/pluck';
-import { Observable } from 'rxjs/Observable';
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Observable} from 'rxjs/Observable';
+import {Component} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {ExperimentRegistryService} from "../services/experiment-registry";
+import {Experiment} from "../models/experiment";
 
 
 @Component({
   selector: 'cl-preview-container',
   template: `
-    <cl-stage>
-      
-      <cl-renderer [id]="caseID$ | async"></cl-renderer>
+    <cl-stage [title]="case.description" *ngFor="let case of experiment.cases">
+      <cl-renderer [id]="case.id"></cl-renderer>
     </cl-stage>
   `,
   styles: [`
@@ -22,9 +22,15 @@ import { ActivatedRoute } from '@angular/router';
   `]
 })
 export class PreviewContainerComponent {
-  caseID$: Observable<string>;
+  experiment:Experiment;
+  caseID$:Observable<string>;
 
-  constructor(route: ActivatedRoute) {
-    this.caseID$ = pluck.call(route.params, 'caseID');
+  constructor(route:ActivatedRoute, private experimentRegistry:ExperimentRegistryService) {
+    var experimentID;
+    route.params.subscribe((params) => {
+        experimentID = params['experimentID'];
+      }
+    )
+    this.experiment = experimentRegistry.getExperiment(experimentID);
   }
 }
