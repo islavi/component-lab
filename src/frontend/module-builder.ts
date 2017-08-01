@@ -4,7 +4,6 @@ import { flatten } from 'lodash';
 import { Experiment, ExperimentCase } from './models/experiment';
 import { ResolvedLab } from './models/lab';
 
-
 export function getModuleForExperiments(
   inputModule: ModuleWithProviders | Type<any>,
   experiments: Experiment[]

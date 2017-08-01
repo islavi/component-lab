@@ -195,7 +195,34 @@ This is a fork from <a href='https://github.com/synapse-wireless-labs/component-
   ```bash
   yarn run lab
   ```
-   
+
+
+#### Bulding ng2-component-lab from your project
+
+1. In the `scripts` section of your package.json add a script to build Component Lab:
+  ```json
+  {
+    "scripts": {
+      "build-lab": "ng2-component-lab --config .lab/ng2-component-lab.config.js --build .dist -- feature"
+    }
+  }
+  ```
+  Note: 
+  feature is the suite name.
+  .dist is floder where the build bundle will be created.
+
+  2. Start the Component Lab build using npm or yarn:
+
+  Via npm:
+  ```bash
+  npm run build-lab
+  ```
+
+  Via yarn:
+  ```bash
+  yarn run build-lab
+  ```
+
   
 #### Bulding ng2-component-lab from src
 
