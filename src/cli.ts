@@ -56,9 +56,9 @@ function invoke(env: any) {
 
   const config = require(env.configPath);
 
-  if (args.build){
+  if (process.argv.indexOf('--build')!=-1){
     log("Going to build project ...");
-    buildServer(config, suite, args.build);
+    buildServer(config, suite);
   } else {
     log("Starting web server ...");
     startServer(config, suite);

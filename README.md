@@ -203,7 +203,7 @@ This is a fork from <a href='https://github.com/synapse-wireless-labs/component-
   ```json
   {
     "scripts": {
-      "build-lab": "ng2-component-lab --config .lab/ng2-component-lab.config.js --build .dist -- feature"
+      "build-lab": "ng2-component-lab --config .lab/ng2-component-lab.config.js --build -- feature"
     }
   }
   ```
