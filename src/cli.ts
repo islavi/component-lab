@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import * as chalk from 'chalk';
 import { startServer } from './server';
+import { buildServer } from './build';
 const Liftoff = require('liftoff');
 const minimist = require('minimist');
 const interpret = require('interpret');
@@ -38,9 +39,9 @@ ComponentLab.launch({
   require: args.require,
   configPath: args.config,
   completion: args.completion
-}, launch);
+}, invoke);
 
-function launch(env: any) {
+function invoke(env: any) {
   const suite = args['_'][0];
 
   if (!suite) {
@@ -55,5 +56,11 @@ function launch(env: any) {
 
   const config = require(env.configPath);
 
-  startServer(config, suite);
+  if (args.build){
+    log("Going to build project ...");
+    buildServer(config, suite, args.build);
+  } else {
+    log("Starting web server ...");
+    startServer(config, suite);
+  }
 }

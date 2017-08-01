@@ -1,6 +1,6 @@
 {
-  "name": "@islavi/ng2-component-lab",
-  "version": "1.0.4",
+  "name": "@islavi-test/ng2-component-lab",
+  "version": "1.0.5",
   "description": "Build Angular 2 components in a controlled, isolated environment. This is fork from <a href='https://github.com/synapse-wireless-labs/component-lab.git'>https://github.com/synapse-wireless-labs/component-lab.git</a> which use angular 2 and fix some bugs.",
   "main": "index.js",
   "repository": {
@@ -35,12 +35,15 @@
   "dependencies": {
     "chalk": "^1.1.3",
     "html-webpack-plugin": "^2.22.0",
+    "ie-shim": "^0.1.0",
     "interpret": "^1.0.1",
     "liftoff": "^2.3.0",
-    "lodash": "^4.16.4",
+    "lodash": "^4.17.4",
     "minimist": "^1.2.0",
+    "reflect-metadata": "^0.1.3",
     "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.4.5",
+    "zone.js": "~0.6.26"
   },
   "devDependencies": {
     "@angular/common": "^2.0.2",
