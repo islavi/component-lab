@@ -209,7 +209,14 @@ This is a fork from <a href='https://github.com/synapse-wireless-labs/component-
   ```
   Note: 
   feature is the suite name.
-  .dist is floder where the build bundle will be created.
+  .dist is the default floder where the build bundle will be created.
+  you can override this in your webpack config. 
+  Example:
+  ```json
+    "output": {
+      "path": ".somePath"
+    }  
+  ```
 
   2. Start the Component Lab build using npm or yarn:
 

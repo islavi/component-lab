@@ -1,6 +1,6 @@
 {
   "name": "@islavi/ng2-component-lab",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Build Angular 2 components in a controlled, isolated environment. This is fork from <a href='https://github.com/synapse-wireless-labs/component-lab.git'>https://github.com/synapse-wireless-labs/component-lab.git</a> which use angular 2 and fix some bugs.",
   "main": "index.js",
   "repository": {

@@ -20,6 +20,8 @@ export function buildServer(config: ComponentLabConfig, suite: string) {
   };
 
   webpackConfig.output = {
+    path: path.resolve('.dist'),
+    publicPath: '',
     filename: "[name].ng2-component-lab.bundle.js"
   };
 
