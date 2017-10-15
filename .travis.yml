@@ -3,11 +3,15 @@ node_js:
 - 6
 install: npm install
 script:
-- npm run build
+  - npm run build
+before_deploy:
+  - cd release
 deploy:
   - provider: npm
     email: israel.lavi@gmail.com
     api_key: $NPM_TOKEN
+    skip_cleanup: true
     on:
       tags: true
+      branch: master
       repo: islavi/ng2-component-lab
