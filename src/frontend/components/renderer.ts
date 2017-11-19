@@ -1,14 +1,5 @@
 import { ExperimentRegistryService } from './../services/experiment-registry';
-import {
-  Component,
-  ComponentRef,
-  Injector,
-  Input,
-  OnDestroy,
-  TemplateRef,
-  ViewChild,
-  ViewContainerRef
-} from '@angular/core';
+import { Component, ComponentRef, Injector, Input, OnDestroy, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { ExperimentFactoryService } from '../services/experiment-factory';
 
 @Component({

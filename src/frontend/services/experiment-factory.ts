@@ -19,7 +19,7 @@ export class ExperimentFactoryService {
   }
 
   compileComponent(id: string, injector: Injector): CompiledExperiment {
-    const component = this._lab.components[id];
+    const component = this._lab.groups.components[id];
     const ref = this._factory.create(injector);
     const factory = ref.componentFactoryResolver.resolveComponentFactory(component);
 
