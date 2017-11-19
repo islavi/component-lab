@@ -1,6 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
-
 @Component({
   selector: 'ng2-component-lab',
   encapsulation: ViewEncapsulation.None,

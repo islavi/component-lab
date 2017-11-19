@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ExperimentRegistryService } from '../services/experiment-registry';
 
-
 @Component({
   selector: 'cl-root-container',
   template: `
