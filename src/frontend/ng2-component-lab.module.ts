@@ -8,7 +8,8 @@ import { ComponentLabComponent } from './containers/app';
 import { RootContainerComponent } from './containers/root';
 import { PreviewContainerComponent } from './containers/preview';
 
-import { RendererComponent } from './components/renderer';
+import { RendererComponent } from './components/component-renderer';
+import { RendererGroup } from './components/group-renderer';
 import { NavComponent } from './components/nav';
 import { LayoutComponent } from './components/layout';
 import { StageComponent } from './components/stage';
@@ -31,6 +32,7 @@ import { ExperimentRegistryService } from './services/experiment-registry';
   declarations: [
     ComponentLabComponent,
     RendererComponent,
+    RendererGroup,
     RootContainerComponent,
     NavComponent,
     PreviewContainerComponent,

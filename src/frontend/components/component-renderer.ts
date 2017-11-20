@@ -1,9 +1,9 @@
 import { ExperimentRegistryService } from './../services/experiment-registry';
-import { Component, ComponentRef, Injector, Input, OnDestroy, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ComponentRef, Injector, Input, OnDestroy, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { ExperimentFactoryService } from '../services/experiment-factory';
 
 @Component({
-  selector: 'cl-renderer',
+  selector: 'component-renderer',
   template: `<div class="case" #caseContainer></div>
   <details *ngIf="source">
     <summary style="margin: 1em auto">Source</summary>
@@ -13,6 +13,8 @@ import { ExperimentFactoryService } from '../services/experiment-factory';
 export class RendererComponent implements OnDestroy {
   private _ref: ComponentRef<any>;
   public source: string;
+  private _caseId: string;
+
   @ViewChild('caseContainer', { read: ViewContainerRef }) public caseContainer: ViewContainerRef;
 
   constructor(
@@ -28,17 +30,20 @@ export class RendererComponent implements OnDestroy {
     }
   }
 
-  @Input() set id(id: string) {
+  @Input() set caseId(caseId: string) {
     this._cleanup();
+    this._caseId = caseId;
+  }
 
-    const { factory, injector } = this.experimentFactory.compileComponent(id, this.injector);
-
+  ngOnInit() {
+    const { factory, injector } = this.experimentFactory.compileComponent(this._caseId, this.injector);
     this._ref = this.caseContainer.createComponent(factory, 0, injector, []);
-    const experimentCase = this.experimentRegistry.getExperimentCase(id);
+    const experimentCase = this.experimentRegistry.getExperimentCase(this._caseId);
     this.source = experimentCase.showSource ? experimentCase.template : '';
   }
 
   ngOnDestroy() {
     this._cleanup();
   }
+
 }

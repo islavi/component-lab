@@ -4,29 +4,38 @@ import { flatten } from 'lodash';
 import { Experiment, ExperimentCase, ExperimentGroup } from './models/experiment';
 import { ResolvedLab } from './models/lab';
 
+interface ExperimentCaseComponentWrapper {
+  id: string,
+  component: Type<any>
+}
+
 export function getModuleForExperiments(
   inputModule: ModuleWithProviders | Type<any>,
   experiments: Experiment[]
 ): ResolvedLab {
 
-  const groups = flatten(experiments.map(experiment => experiment.groups.map(g => {
-    return {
-      id: g.id,
-      cases: generateCases(g)
-    }
-  })));
+  const componentsWithIds:ExperimentCaseComponentWrapper[] = [];
 
-  const casesWithId:any = groups.map(g => {
-    return g.cases.componentsWithIds.map(
-      e => {
-        return e.component
-      }
-    );
+  experiments.forEach((exp:Experiment)=> {
+    exp.groups.forEach((group:ExperimentGroup)=> {
+      group.cases.forEach((cas:ExperimentCase)=> {
+        componentsWithIds.push(
+          {
+            id: cas.id,
+            component: generateComponent(cas)
+          }
+        );
+      });
+    });
   });
 
-  const ngModule = generateNgModule(inputModule, casesWithId)
+  const components = componentsWithIds.reduce((all, next) => {
+    return Object.assign(all, { [next.id]: next.component });
+  }, {});
 
-  return { ngModule, groups };
+  const ngModule = generateNgModule(inputModule, componentsWithIds.map(e => e.component));
+
+  return { ngModule, components };
 }
 
 export function generateCases(experimentGroup: ExperimentGroup): any {

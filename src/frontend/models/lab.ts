@@ -1,5 +1,5 @@
 import { Type, ModuleWithProviders } from '@angular/core';
-import { Experiment } from './experiment';
+import { Experiment, ExperimentGroup } from './experiment';
 
 export interface Lab {
   module?: NodeModule;
@@ -9,7 +9,7 @@ export interface Lab {
 
 export interface ResolvedLab {
   ngModule: Type<any>;
-  groups: any;
+  //groups: ExperimentGroup[];
   //groups: { id: string, name: string, cases:any };
-  //components: { [id: string]: Type<any> };
+  components: { [id: string]: Type<any> };
 }
