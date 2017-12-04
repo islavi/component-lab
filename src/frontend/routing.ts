@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { RootContainerComponent } from './containers/root';
 import { PreviewContainerComponent } from './containers/preview';
 
-
 const routes: Routes = [
   {
     path: '',

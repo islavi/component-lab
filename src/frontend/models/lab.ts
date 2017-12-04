@@ -9,7 +9,5 @@ export interface Lab {
 
 export interface ResolvedLab {
   ngModule: Type<any>;
-  //groups: ExperimentGroup[];
-  //groups: { id: string, name: string, cases:any };
   components: { [id: string]: Type<any> };
 }

@@ -6,7 +6,6 @@ const Liftoff = require('liftoff');
 const minimist = require('minimist');
 const interpret = require('interpret');
 
-
 const args = minimist(process.argv.slice(2));
 
 const ComponentLab = new Liftoff({

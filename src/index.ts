@@ -24,7 +24,7 @@ export class ExperimentBuilder implements Experiment {
   private _callCount = 0;
 
   constructor(public name: string, public module?: NodeModule) {
-    this.id = `exp${module ? module.id : '-' + name}`;
+    this.id = (module) ? module.id : name;
   }
 
   group(id: string, cases: Array<ExperimentCase>): this {
@@ -44,23 +44,6 @@ export class GroupBuilder implements ExperimentGroup {
     this.id = id;
     this.cases = cases;
   }
-
-  // case(description: string, config: CaseConfig): this {
-  //   this.cases.push({
-  //     id: `${this.id}-${++this._callCount}`,
-  //     description,
-  //     template: config.template,
-  //     context: config.context,
-  //     showSource: config.showSource,
-  //     styles: config.styles
-  //   });
-
-  //   return this;
-  // }
-
-  // xcase(description: string, config: CaseConfig): this {
-  //   return this;
-  // }
 
 }
 

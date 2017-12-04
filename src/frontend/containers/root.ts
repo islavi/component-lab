@@ -7,14 +7,14 @@ import { ExperimentRegistryService } from '../services/experiment-registry';
     <cl-layout>
       <cl-nav [experiments]="experiments"></cl-nav>
 
-      <div class="grow">
+      <div class="content">
         <router-outlet></router-outlet>
       </div>
     </cl-layout>
   `,
   styles: [`
-    .grow {
-      flex-grow: 5;
+    .content {
+      flex: 5;
     }
   `]
 })

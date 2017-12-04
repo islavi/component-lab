@@ -12,7 +12,8 @@ export interface ExperimentGroup {
 
 export interface ExperimentCase {
   id: string;
-  description: string;
+  title?: string;
+  description?: string;
   context?: any;
   template: string;
   styles?: string[];
