@@ -1,6 +1,6 @@
 {
   "name": "@islavi/ng2-component-lab",
-  "version": "1.0.20",
+  "version": "1.0.25",
   "description": "Build Angular 2 components in a controlled, isolated environment. This is fork from <a href='https://github.com/synapse-wireless-labs/component-lab.git'>https://github.com/synapse-wireless-labs/component-lab.git</a> which use angular 2 and fix some bugs.",
   "main": "index.js",
   "repository": {
@@ -14,8 +14,7 @@
     "Mia Chung",
     "Matt Hales",
     "Joe Davis",
-    "Lavi Israel",
-    "Orit Barda"
+    "Lavi Israel"
   ],
   "license": "MIT",
   "bin": {
@@ -55,7 +54,9 @@
     "@types/chalk": "^0.4.30",
     "@types/lodash": "^4.14.37",
     "@types/node": "^6.0.45",
+    "browserify-css": "^0.14.0",
     "cpy-cli": "^1.0.1",
+    "prismjs": "^1.8.4",
     "rimraf": "^2.5.4",
     "rollup": "^0.36.3",
     "rxjs": "5.0.0-beta.12",

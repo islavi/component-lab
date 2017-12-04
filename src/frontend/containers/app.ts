@@ -1,6 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
-
 @Component({
   selector: 'ng2-component-lab',
   encapsulation: ViewEncapsulation.None,
@@ -8,8 +7,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
     <router-outlet></router-outlet>
   `,
   styles: [`
-    @import 'https://fonts.googleapis.com/css?family=Open+Sans:400,700';
-
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
@@ -19,8 +16,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
     dl, dt, dd, ol, ul, li,
     fieldset, form, label, legend,
     table, caption, tbody, tfoot, thead, tr, th, td,
-    article, aside, canvas, details, embed, 
-    figure, figcaption, footer, header, hgroup, 
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
     menu, nav, output, ruby, section, summary,
     time, mark, audio, video {
       margin: 0;
@@ -29,9 +26,10 @@ import { Component, ViewEncapsulation } from '@angular/core';
       font-size: 100%;
       font: inherit;
       vertical-align: baseline;
+      color: #333;
     }
     /* HTML5 display-role reset for older browsers */
-    article, aside, details, figcaption, figure, 
+    article, aside, details, figcaption, figure,
     footer, header, hgroup, menu, nav, section {
       display: block;
     }
@@ -48,6 +46,18 @@ import { Component, ViewEncapsulation } from '@angular/core';
     q:before, q:after {
       content: '';
       content: none;
+    }
+    h1 {
+      font-size: 2em;
+      font-weight: bold;
+    }
+    h2 {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    h3 {
+      font-size: 1.2em;
+      font-weight: bold;
     }
     table {
       border-collapse: collapse;

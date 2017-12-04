@@ -16,7 +16,6 @@ export interface DevServerConfig {
   https?: boolean | {key: any; cert: any; };
 }
 
-
 export function startServer(config: ComponentLabConfig, suite: string) {
   const webpackConfig: any = config.webpackConfig;
   const devServerConfig: DevServerConfig = webpackConfig.devServer;
@@ -38,10 +37,16 @@ export function startServer(config: ComponentLabConfig, suite: string) {
     ]
   };
 
+  webpackConfig.output = {
+    path: path.resolve('/'),
+    publicPath: '',
+    filename: '[name].js'
+  };
+
   webpackConfig.plugins = webpackConfig.plugins.filter(p => ! (p instanceof HtmlWebpackPlugin));
 
   const compiler = webpack(webpackConfig);
-  
+
   compiler.apply(new ProgressPlugin({
     profile: true,
     colors: true
@@ -60,7 +65,7 @@ export function startServer(config: ComponentLabConfig, suite: string) {
       hash: true,
       timings: true,
       chunks: false,
-      chunkModules: false  
+      chunkModules: false
     },
     inline: true
   }, devServerConfig);

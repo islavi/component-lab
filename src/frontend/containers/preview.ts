@@ -1,15 +1,15 @@
-import {Observable} from 'rxjs/Observable';
-import {Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {ExperimentRegistryService} from "../services/experiment-registry";
-import {Experiment} from "../models/experiment";
-
+import { pluck } from 'rxjs/operator/pluck';
+import { Observable } from 'rxjs/Observable';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ExperimentGroup } from '../models/experiment';
+import { ExperimentRegistryService } from "../services/experiment-registry";
 
 @Component({
   selector: 'cl-preview-container',
   template: `
-    <cl-stage [title]="case.description" *ngFor="let case of experiment.cases">
-      <cl-renderer [id]="case.id"></cl-renderer>
+    <cl-stage [title]="group.id">
+      <group-renderer></group-renderer>
     </cl-stage>
   `,
   styles: [`
@@ -18,19 +18,28 @@ import {Experiment} from "../models/experiment";
       flex-direction: column;
       width: 100%;
       height: 100%;
+      padding: 10px;
     }
   `]
 })
-export class PreviewContainerComponent {
-  experiment:Experiment;
-  caseID$:Observable<string>;
+export class PreviewContainerComponent implements OnInit, OnDestroy {
+  groupID$: string;
+  group: ExperimentGroup;
+  private sub: any;
 
-  constructor(route:ActivatedRoute, private experimentRegistry:ExperimentRegistryService) {
-    var experimentID;
-    route.params.subscribe((params) => {
-        experimentID = params['experimentID'];
-      }
-    )
-    this.experiment = experimentRegistry.getExperiment(experimentID);
+  constructor(private route: ActivatedRoute, private experimentRegistry:ExperimentRegistryService) {
+
   }
+
+  ngOnInit():void {
+    this.sub = this.route.params.subscribe(params => {
+      this.groupID$ = params['groupID'];
+      this.group = this.experimentRegistry.getExperimentGroup(this.groupID$);
+    });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
+
 }

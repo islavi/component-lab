@@ -1,6 +1,5 @@
 import { Injectable, OpaqueToken, Inject } from '@angular/core';
-import { Experiment, ExperimentCase } from '../models/experiment';
-
+import { Experiment, ExperimentCase, ExperimentGroup } from '../models/experiment';
 
 export const EXPERIMENTS = new OpaqueToken('Experiments');
 
@@ -11,12 +10,23 @@ export type IdMap<T extends { id: string }> = { [id: string]: T }
 export class ExperimentRegistryService {
   experiments: IdMap<Experiment> = {};
   experimentCases: IdMap<ExperimentCase> = {};
+  experimentGroups: IdMap<ExperimentGroup> = {};
 
   constructor(@Inject(EXPERIMENTS) experiments: Experiment[]) {
     this.experiments = experiments.reduce<IdMap<Experiment>>(byId, {});
-    this.experimentCases = experiments.reduce<IdMap<ExperimentCase>>((all, next) => {
-      return Object.assign(all, next.cases.reduce<IdMap<ExperimentCase>>(byId, {}));
+    this.experimentGroups = experiments.reduce<IdMap<ExperimentGroup>>((all, next) => {
+      return Object.assign(all, next.groups.reduce<IdMap<ExperimentGroup>>(byId, {}));
     }, {});
+
+    // Calculate experiment cases, and build Object: this.experimentCases
+    var b:ExperimentCase[]=[];
+    for (var property in this.experimentGroups) {
+        if (this.experimentGroups.hasOwnProperty(property)) {
+            b = b.concat(this.experimentGroups[property].cases);
+        }
+    }
+    this.experimentCases = b.reduce<IdMap<ExperimentCase>>(byId, {});
+
   }
 
   getExperiment(id: string): Experiment {
@@ -25,6 +35,10 @@ export class ExperimentRegistryService {
 
   getExperimentCase(id: string): ExperimentCase {
     return this.experimentCases[id];
+  }
+
+  getExperimentGroup(id: string): ExperimentGroup {
+    return this.experimentGroups[id];
   }
 
   getAllExperiments() {

@@ -1,5 +1,5 @@
 import { Type, ModuleWithProviders } from '@angular/core';
-import { Experiment } from './experiment';
+import { Experiment, ExperimentGroup } from './experiment';
 
 export interface Lab {
   module?: NodeModule;

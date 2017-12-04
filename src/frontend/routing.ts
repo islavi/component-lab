@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { RootContainerComponent } from './containers/root';
 import { PreviewContainerComponent } from './containers/preview';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -15,7 +14,7 @@ const routes: Routes = [
     component: RootContainerComponent,
     children: [
       {
-        path: 'preview/:experimentID',
+        path: 'preview/:experimentID/:groupID',
         component: PreviewContainerComponent
       },
     ],
