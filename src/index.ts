@@ -7,13 +7,6 @@ import { Experiment, ExperimentCase, ExperimentGroup } from './frontend/models/e
 import { Lab } from './frontend/models/lab';
 import { bootstrap } from './frontend/bootstrap';
 
-export interface CaseConfig {
-  context?: any;
-  template: string;
-  showSource?: boolean;
-  styles?: string[];
-}
-
 export function createLab(lab: Lab) {
   bootstrap(lab);
 }
@@ -23,8 +16,9 @@ export class ExperimentBuilder implements Experiment {
   groups: ExperimentGroup[] = [];
   private _callCount = 0;
 
-  constructor(public name: string, public module?: NodeModule) {
+  constructor(public name: string, public order?: number, public module?: NodeModule) {
     this.id = (module) ? module.id : name;
+    this.order = order ? order : 999;
   }
 
   group(id: string, cases: Array<ExperimentCase>): this {
@@ -47,6 +41,6 @@ export class GroupBuilder implements ExperimentGroup {
 
 }
 
-export function experimentOn(component: string, module?: NodeModule): ExperimentBuilder {
-  return new ExperimentBuilder(component, module);
+export function experimentOn(component: string, order?: number, module?: NodeModule): ExperimentBuilder {
+  return new ExperimentBuilder(component, order, module);
 }

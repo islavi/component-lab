@@ -1,6 +1,7 @@
 export interface Experiment {
   id: string;
   name: string;
+  order?: number;
   groups: ExperimentGroup[];
   module?: NodeModule;
 }

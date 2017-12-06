@@ -17,6 +17,7 @@ import { ToolbarComponent } from './components/toolbar';
 
 import { ExperimentFactoryService } from './services/experiment-factory';
 import { ExperimentRegistryService } from './services/experiment-registry';
+import { OrderByPipe } from './pipes/orderby';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { ExperimentRegistryService } from './services/experiment-registry';
     LayoutComponent,
     StageComponent,
     ToolbarComponent,
+    OrderByPipe
   ],
   entryComponents: [
     RootContainerComponent,
