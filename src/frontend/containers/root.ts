@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ExperimentRegistryService } from '../services/experiment-registry';
 
 @Component({
@@ -7,7 +7,7 @@ import { ExperimentRegistryService } from '../services/experiment-registry';
     <cl-layout>
       <cl-nav [experiments]="experiments"></cl-nav>
 
-      <div class="content">
+      <div #content class="content">
         <router-outlet></router-outlet>
       </div>
     </cl-layout>
@@ -15,13 +15,25 @@ import { ExperimentRegistryService } from '../services/experiment-registry';
   styles: [`
     .content {
       flex: 5;
+      padding: 15px;
+      overflow: auto;
     }
   `]
 })
-export class RootContainerComponent {
+export class RootContainerComponent implements OnInit {
+
+  @ViewChild('content') contentElement:ElementRef;
+
   experiments: any[];
+  viewHeight: number;
 
   constructor(registry: ExperimentRegistryService) {
     this.experiments = registry.getAllExperiments();
   }
+
+  ngOnInit():void {
+    this.viewHeight = this.contentElement.nativeElement.offsetHeight;
+    this.contentElement.nativeElement.style.height = this.viewHeight + "px";
+  }
+
 }

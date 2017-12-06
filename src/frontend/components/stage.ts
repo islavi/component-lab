@@ -9,7 +9,6 @@ import { Component } from '@angular/core';
   styles: [`
     :host {
       display: block;
-      height: 100%;
       box-sizing: border-box;
       padding: 15px;
       background-color: rgb(255, 255, 255);

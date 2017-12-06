@@ -1,10 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Experiment, ExperimentCase } from '../models/experiment';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'cl-nav',
   template: `
-
     <div class="logo">
       <a href="https://github.com/islavi/ng2-component-lab" target="_blank"><h3>NG2 COMPONENT LAB</h3></a>
       <button>⌘</button>
@@ -15,7 +15,7 @@ import { Experiment, ExperimentCase } from '../models/experiment';
     </div>
 
     <nav>
-      <div *ngFor="let experiment of experiments" class="experiment">
+      <div *ngFor="let experiment of experiments | orderBy: ['order','name']" class="experiment">
         <h2 class="experimentName">{{ experiment.name }}</h2>
 
         <nav class="groups">
@@ -149,7 +149,20 @@ import { Experiment, ExperimentCase } from '../models/experiment';
     }
   `]
 })
-export class NavComponent {
+export class NavComponent implements OnInit {
   @Input() experiments: Experiment[];
   @Input() activeCase: ExperimentCase;
+
+  constructor (private router: Router, private route: ActivatedRoute,) {
+
+  }
+
+  ngOnInit():void {
+    // Find experiment with order = 1 and open it as default.
+    let firstExperiment = this.experiments.find((experiment:Experiment)=>{
+      return experiment.order===1;
+    });
+    this.router.navigate(['/experiment', 'preview', firstExperiment.id, firstExperiment.groups[0].id]);
+  }
+
 }
