@@ -5,25 +5,23 @@ import { ExperimentGroup } from '../models/experiment';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'group-renderer',
+  selector: 'cl-preview-container',
   template: `
-  <div class="component" *ngFor="let case of group.cases">
-    <component-renderer [caseId]="case.id"></component-renderer>
-  </div>
+    <cl-stage>
+      <group-renderer [groupId]="groupID"></group-renderer>
+    </cl-stage>
   `,
   styles: [`
     :host {
-
+      display: flex;
+      flex-direction: column;
     }
-    .component {
-      padding-bottom: 100px;
-    }
-    `]
+  `]
 })
-export class RendererGroup implements OnDestroy {
+export class GroupPreviewComponent {
+
   private _ref: ComponentRef<any>;
-  private groupID$: string;
-  private group:ExperimentGroup;
+  private groupID: string;
   private sub: any;
 
   constructor(private route: ActivatedRoute, private experimentRegistry: ExperimentRegistryService) {
@@ -39,8 +37,7 @@ export class RendererGroup implements OnDestroy {
 
   ngOnInit():void {
     this.sub = this.route.params.subscribe(params => {
-      this.groupID$ = params['groupID'];
-      this.group = this.experimentRegistry.getExperimentGroup(this.groupID$);
+      this.groupID = params['groupID'];
     });
   }
 

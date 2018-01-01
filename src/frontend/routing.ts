@@ -1,7 +1,8 @@
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RootContainerComponent } from './containers/root';
-import { PreviewContainerComponent } from './containers/preview';
+import { GroupPreviewComponent } from './containers/group-preview.component';
+import { ExperimentPreviewComponent } from './containers/experiment-preview.component';
 
 const routes: Routes = [
   {
@@ -15,8 +16,12 @@ const routes: Routes = [
     children: [
       {
         path: 'preview/:experimentID/:groupID',
-        component: PreviewContainerComponent
+        component: GroupPreviewComponent
       },
+      {
+        path: 'preview/:experimentID',
+        component: ExperimentPreviewComponent
+      }
     ],
   },
 ];
