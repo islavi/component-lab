@@ -37,8 +37,8 @@ export class ExperimentRegistryService {
     return this.experimentCases[id];
   }
 
-  getExperimentGroup(id: string): ExperimentGroup {
-    return this.experimentGroups[id];
+  getExperimentGroup(groupId: string): ExperimentGroup {
+    return this.experimentGroups[groupId];
   }
 
   getAllExperiments() {

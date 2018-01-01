@@ -16,9 +16,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 
     <nav>
       <div *ngFor="let experiment of experiments | orderBy: ['order','name']" class="experiment">
-        <h2 class="experimentName">{{ experiment.name }}</h2>
+        <h2 class="experimentName">
+          <a [routerLink]="[ '/', 'experiment', 'preview', experiment.id ]" routerLinkActive="caseLinkActive">&raquo;&nbsp;{{ experiment.name }}</a>
+        </h2>
 
-        <nav class="groups">
+        <!-- In case there is one group, do not show it. user can press on experiment -->
+        <nav *ngIf="experiment.groups.length > 1" class="groups">
           <a
             *ngFor="let g of experiment.groups"
             [routerLink]="[ '/', 'experiment', 'preview', experiment.id, g.id ]"
@@ -114,7 +117,6 @@ import { ActivatedRoute, Router } from '@angular/router';
       display: block;
       padding: 4px 0;
       text-decoration: none;
-      text-indent: 10px;
     }
 
     .experiment:not(:last-child) {
@@ -128,8 +130,13 @@ import { ActivatedRoute, Router } from '@angular/router';
       padding: 4px 10px;
     }
 
+    .experimentName a {
+      cursor: pointer;
+      text-decoration: none;
+    }
+
     .groups {
-      padding: 0;
+      padding: 4px 20px;
     }
 
     .caseLink {

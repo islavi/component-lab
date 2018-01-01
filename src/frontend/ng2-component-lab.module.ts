@@ -6,10 +6,11 @@ import { Routing } from './routing';
 
 import { ComponentLabComponent } from './containers/app';
 import { RootContainerComponent } from './containers/root';
-import { PreviewContainerComponent } from './containers/preview';
+import { ExperimentPreviewComponent } from './containers/experiment-preview.component';
+import { GroupPreviewComponent } from './containers/group-preview.component';
 
 import { RendererComponent } from './components/component-renderer';
-import { RendererGroup } from './components/group-renderer';
+import { GroupRendererComponent } from './components/group-renderer.component';
 import { NavComponent } from './components/nav';
 import { LayoutComponent } from './components/layout';
 import { StageComponent } from './components/stage';
@@ -33,10 +34,11 @@ import { OrderByPipe } from './pipes/orderby';
   declarations: [
     ComponentLabComponent,
     RendererComponent,
-    RendererGroup,
+    GroupRendererComponent,
     RootContainerComponent,
     NavComponent,
-    PreviewContainerComponent,
+    GroupPreviewComponent,
+    ExperimentPreviewComponent,
     LayoutComponent,
     StageComponent,
     ToolbarComponent,
@@ -44,7 +46,8 @@ import { OrderByPipe } from './pipes/orderby';
   ],
   entryComponents: [
     RootContainerComponent,
-    PreviewContainerComponent,
+    GroupPreviewComponent,
+    ExperimentPreviewComponent
   ],
   bootstrap: [
     ComponentLabComponent,
