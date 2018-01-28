@@ -4,14 +4,14 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'cl-toolbar',
   template: `
-    <div class="button-group">
-      <button>
+    <div class="component-lab-button-group">
+      <button class="component-lab-button">
         <i class="material-icons md-18">desktop_windows</i>
       </button>
-      <button>
+      <button class="component-lab-button">
         <i class="material-icons md-18">tablet_android</i>
       </button>
-      <button>
+      <button class="component-lab-button">
         <i class="material-icons md-18">phone_iphone</i>
       </button>
     </div>
@@ -30,14 +30,14 @@ import { Component } from '@angular/core';
       background-color: #F4F7FA;
     }
 
-    .button-group {
+    .component-lab-button-group {
       width: 100%;
       display: flex;
       flex-direction: row;
 
     }
 
-    button {
+    .component-lab-button {
       display: block;
       width: 32px;
       height: 32px;
@@ -51,7 +51,8 @@ import { Component } from '@angular/core';
       cursor: pointer;
     }
 
-    button.selected, button:hover {
+    .component-lab-button.selected,
+    .component-lab-button:hover {
       opacity: 0.5;
     }
   `]

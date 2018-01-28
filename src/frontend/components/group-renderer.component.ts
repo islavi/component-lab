@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'group-renderer',
   template: `
-  <div class="component" *ngFor="let case of group.cases">
+  <div class="component-lab-component" *ngFor="let case of group.cases">
     <component-renderer [caseId]="case.id"></component-renderer>
   </div>
   `,
@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
     :host {
 
     }
-    .component {
+    .component-lab-component {
       padding-bottom: 100px;
     }
     `]

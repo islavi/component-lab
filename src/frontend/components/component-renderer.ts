@@ -6,58 +6,64 @@ var Prism = require('prismjs');
 @Component({
   selector: 'component-renderer',
   template: `
-  <h2 class="title">{{title}}</h2>
+  <h2 class="component-lab-title">{{title}}</h2>
 
-  <h3 class="example">Example</h3>
-  <div class="case" #caseContainer></div>
+  <h3 class="component-lab-example">Example</h3>
+  <div class="component-lab-case" #caseContainer></div>
 
-  <h3 *ngIf="description" class="description-header">Description</h3>
-  <div *ngIf="description" class="description" [innerHTML]="description"></div>
+  <h3 *ngIf="description" class="component-lab-description-header">Description</h3>
+  <div *ngIf="description" class="component-lab-description" [innerHTML]="description"></div>
 
-  <h3 *ngIf="context" class="context">Context</h3>
-  <pre *ngIf="context"><code class="language-javascript" [innerHTML]="highlightedContext"></code></pre>
+  <h3 *ngIf="context" class="component-lab-context">Context</h3>
+  <pre class="component-lab-pre" *ngIf="context"><code class="component-lab-code language-javascript" [innerHTML]="highlightedContext"></code></pre>
 
-  <h3 *ngIf="source" class="source">Source code</h3>
-  <pre *ngIf="source"><code class="language-javascript" [innerHTML]="highlightedSource"></code></pre>
+  <h3 *ngIf="source" class="component-lab-source">Source code</h3>
+  <pre class="component-lab-pre" *ngIf="source"><code class="component-lab-code language-javascript" [innerHTML]="highlightedSource"></code></pre>
   `,
   styles: [`
     :host {
       font-family: OpenSans-Light, 'Open Sans', Arial, sans-serif;
       font-size: 13px;
     }
-    h2.title {
+
+    .component-lab-title {
       font-family: OpenSans-Light, 'Open Sans', Arial, sans-serif;
       font-size: 24px;
       font-weight: regular;
       border-bottom: 1px solid #d2d2d2;
     }
-    .description {
+
+    .component-lab-description {
       display: flex;
       padding: 10px 0;
       font-size: 13px;
       font-weight: regular;
       font-family: OpenSans-Light, 'Open Sans', Arial, sans-serif;
     }
-    h3.example,
-    h3.description-header,
-    h3.source,
-    h3.context {
+
+    .component-lab-example,
+    .component-lab-description-header,
+    .component-lab-source,
+    .component-lab-context {
       margin: 10px 0;
       font-size: 13px;
       font-weight: regular;
       font-family: OpenSans-Light, 'Open Sans', Arial, sans-serif;
       user-select: text;
     }
-    code {
+
+    .component-lab-code {
       display: block;
       user-select: text;
     }
-    pre {
+
+    .component-lab-pre {
       background-color: #f2f2f2;
       padding: 5px;
       user-select: text;
     }
-    .case {
+
+    .component-lab-case {
       margin-bottom: 20px;
     }
     `

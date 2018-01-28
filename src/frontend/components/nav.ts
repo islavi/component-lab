@@ -4,24 +4,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'cl-nav',
+  host: {'class': 'cl-nav'},
   template: `
-    <div class="logo">
+    <div class="component-lab-logo">
       <a href="https://github.com/islavi/ng2-component-lab" target="_blank"><h3>NG2 COMPONENT LAB</h3></a>
       <button>⌘</button>
     </div>
 
-    <div class="filter">
+    <div class="component-lab-filter">
       <input type="text" placeholder="Filter" name="filter-text" value="" />
     </div>
 
     <nav>
       <div *ngFor="let experiment of experiments | orderBy: ['order','name']" class="experiment">
-        <h2 class="experimentName">
+        <h2 class="component-lab-experimentName">
           <a [routerLink]="[ '/', 'experiment', 'preview', experiment.id ]" routerLinkActive="caseLinkActive">&raquo;&nbsp;{{ experiment.name }}</a>
         </h2>
 
         <!-- In case there is one group, do not show it. user can press on experiment -->
-        <nav *ngIf="experiment.groups.length > 1" class="groups">
+        <nav *ngIf="experiment.groups.length > 1" class="component-lab-groups">
           <a
             *ngFor="let g of experiment.groups"
             [routerLink]="[ '/', 'experiment', 'preview', experiment.id, g.id ]"
@@ -43,15 +44,16 @@ import { ActivatedRoute, Router } from '@angular/router';
       font-family: Arial;
       flex: 1;
       font-size: 13px;
+      color: #333;
     }
 
-    .logo {
+    .component-lab-logo {
       background: rgb(247, 247, 247);
       margin-bottom: 10px;
       display: flex;
     }
 
-    .logo a {
+    .component-lab-logo a {
         text-decoration: none;
         flex-grow: 1;
         display: flex;
@@ -61,7 +63,7 @@ import { ActivatedRoute, Router } from '@angular/router';
         border-radius: 2px;
     }
 
-    .logo h3 {
+    .component-lab-logo h3 {
         color: rgb(130, 130, 130);
         -webkit-font-smoothing: antialiased;
         text-transform: uppercase;
@@ -75,7 +77,7 @@ import { ActivatedRoute, Router } from '@angular/router';
         overflow: hidden;
     }
 
-    .logo button {
+    .component-lab-logo button {
       text-transform: uppercase;
       font-size: 12px;
       font-weight: bolder;
@@ -92,7 +94,7 @@ import { ActivatedRoute, Router } from '@angular/router';
       flex-shrink: 0;
     }
 
-    .filter {
+    .component-lab-filter {
       color: rgb(68, 68, 68);
       -webkit-font-smoothing: antialiased;
       border: 1px solid rgb(236, 236, 236);
@@ -101,7 +103,7 @@ import { ActivatedRoute, Router } from '@angular/router';
       margin-bottom: 10px;
     }
 
-    .filter input {
+    .component-lab-filter input {
       font-size: 12px;
       color: rgb(130, 130, 130);
       padding: 5px; display:
@@ -112,30 +114,28 @@ import { ActivatedRoute, Router } from '@angular/router';
       height: 26px;
     }
 
-    .groups a.groupLink {
+    .component-lab-groups a.groupLink {
       font-size: 13px;
       display: block;
       padding: 4px 0;
       text-decoration: none;
+      color: #000000;
     }
 
-    .experiment:not(:last-child) {
-
-    }
-
-    .experimentName {
+    .component-lab-experimentName {
       display: block;
       font-size: 15px;
       font-weight: bold;
       padding: 4px 10px;
     }
 
-    .experimentName a {
+    .component-lab-experimentName a {
       cursor: pointer;
       text-decoration: none;
+      color: #000000;
     }
 
-    .groups {
+    .component-lab-groups {
       padding: 4px 20px;
     }
 
@@ -150,7 +150,7 @@ import { ActivatedRoute, Router } from '@angular/router';
       transition: all 200ms;
     }
 
-    .groups a.groupLink.caseLinkActive {
+    .component-lab-groups a.groupLink.caseLinkActive {
       color: #333;
       background-color: #ffffff;
     }

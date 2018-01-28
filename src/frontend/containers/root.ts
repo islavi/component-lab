@@ -7,13 +7,13 @@ import { ExperimentRegistryService } from '../services/experiment-registry';
     <cl-layout>
       <cl-nav [experiments]="experiments"></cl-nav>
 
-      <div #content class="content">
+      <div #content class="component-lab-content">
         <router-outlet></router-outlet>
       </div>
     </cl-layout>
   `,
   styles: [`
-    .content {
+    .component-lab-content {
       flex: 5;
       padding: 15px;
       overflow: auto;
