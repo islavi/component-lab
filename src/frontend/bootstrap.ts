@@ -11,10 +11,12 @@ export function bootstrap(lab: Lab): Promise<NgModuleRef<ComponentLabModule>> {
   const experiments = lab.loadExperiments();
   const resolved = getModuleForExperiments(lab.ngModule, experiments);
 
-  const platform = platformBrowserDynamic([
+  const data = [
     provideExperiments(experiments),
     provideResolvedLab(resolved)
-  ]);
+  ];
+
+  const platform = platformBrowserDynamic(data);
 
   return platform.bootstrapModule(ComponentLabModule);
 }

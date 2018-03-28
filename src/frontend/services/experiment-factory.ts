@@ -1,10 +1,10 @@
-import { Injectable, NgModule, Type, Compiler, NgModuleFactory, OpaqueToken, Inject, Injector, ComponentFactory } from '@angular/core';
+import { Injectable, NgModule, Type, Compiler, NgModuleFactory, InjectionToken, Inject, Injector, ComponentFactory } from '@angular/core';
 import { ResolvedLab } from '../models/lab';
 import { ExperimentGroup } from '../models/experiment';
 import { ExperimentRegistryService } from "../services/experiment-registry";
 import { find } from 'lodash';
 
-export const RESOLVED_LAB = new OpaqueToken('Resolved Lab');
+export const RESOLVED_LAB = new InjectionToken('Resolved Lab');
 
 export interface CompiledExperiment {
   injector: Injector;
